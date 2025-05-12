@@ -1,0 +1,13 @@
+/* app.css */
+.app {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.home-page {
+  margin-top: 0px;
+  padding: 2px;
+  display: flex;
+  width: 100%;
+}
+

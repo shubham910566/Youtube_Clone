@@ -1,0 +1,10 @@
+.home-page{
+    margin-top:100px;
+    padding:2px;
+    display: flex;
+    width: 100%;  
+}
+
+.homepage{
+    margin-left:0px;
+}

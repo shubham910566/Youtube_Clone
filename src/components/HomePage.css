@@ -1,0 +1,151 @@
+/* Base homepage content styling */
+*{
+  overflow-x: hidden;
+}
+
+.homepage-content {
+  background-color: #fff;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+/* Base top bar styling */
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  white-space: nowrap;
+  gap: 12px;
+  padding: 10px 0;
+  scrollbar-width: none;
+}
+
+.top-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* When sidebar is shown — adjust margin */
+.top-bar.with_sidebar {
+  margin-left: 0px; /* Adjust based on your sidebar width */
+}
+
+/* When sidebar is hidden — full width */
+.top-bar.without_sidebar {
+  margin-left: 0;
+}
+
+/* Category icons */
+.top-icon {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  background-color: #f1f1f1;
+  border-radius: 18px;
+  font-size: 14px;
+  color: #0f0f0f;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.top-icon:hover {
+  background-color: #e0e0e0;
+}
+
+/* ------------------Video grid styling-------------------- */
+/* Video grid styling */
+
+.show-videos {
+  display: grid;
+  gap: 16px;
+  overflow-x: hidden;
+  padding: 16px 0;
+  margin-left: 30px;
+  margin-right: 0px;
+ 
+}
+
+.show-videos.with_sidebar {
+  grid-template-columns: repeat(3, 1fr);
+  
+}
+
+/* 4 videos per row when sidebar is hidden */
+.show-videos.without_sidebar {
+  grid-template-columns: repeat(4, 1fr);
+}
+.video-box {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+/* Thumbnail box styling */
+.thumbnail-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Maintain thumbnail aspect ratio */
+}
+
+.thumbnail-box img {
+  width: 250px;
+  background-color: #606060;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Video duration styling */
+.thumbnail-box .time {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Video details styling */
+.video_detail_box {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video_detail_box .title {
+  font-size: 16px;
+  color: #0f0f0f;
+  margin: 0;
+}
+
+.video_detail_box .channel-name {
+  font-size: 14px;
+  color: #606060;
+  margin: 0;
+}
+
+.video_detail_box .views {
+  font-size: 14px;
+  color: #606060;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .top-bar.with_sidebar {
+    margin-left: 0; /* Remove sidebar margin on smaller screens */
+  }
+
+  .show-videos {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .show-videos {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}

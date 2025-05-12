@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+.sidebar-main {
+  color: #000;
+  font-family: sans-serif;
+  width: 300px;
+}
+
+.top,
+.my-collection,
+.subscriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.field:hover {
+  background-color: #f3f4f6; /* Tailwind's gray-100 */
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 16px;
+  color: #555;
+}
+
+.channel-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280; /* Tailwind gray-500 */
+  text-transform: uppercase;
+  margin-left: 12px;
+  margin-bottom: 4px;
+}
