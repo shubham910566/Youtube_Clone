@@ -136,6 +136,10 @@ body {
 .bell:hover {
   background-color: var(--hover-bg);
 }
+.profile{
+  overflow: none
+  ;
+}
 
 .profile img {
   width: 40px;

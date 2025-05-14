@@ -2,12 +2,16 @@
 .app {
   display: flex;
   flex-direction: column;
-  margin: 10px;
-}
-.home-page {
-  margin-top: 0px;
-  padding: 2px;
-  display: flex;
+  margin: 0; /* Remove margin to prevent overflow */
   width: 100%;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+.home-page {
+  margin-top: 10px; 
+  padding: 0; /* Remove padding to prevent overflow */
+  display: flex;
+  width: 100%;
+  overflow-x: none;
+   /* Prevent horizontal overflow */
+}

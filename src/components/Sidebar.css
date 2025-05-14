@@ -4,6 +4,8 @@
   color: #000;
   font-family: sans-serif;
   width: 300px;
+  z-index: 1000;
+
 }
 
 .top,

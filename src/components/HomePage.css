@@ -1,6 +1,6 @@
 /* Base homepage content styling */
 *{
-  overflow-x: hidden;
+  overflow-x: none;
 }
 
 .homepage-content {
@@ -26,15 +26,15 @@
 
 /* When sidebar is shown — adjust margin */
 .top-bar.with_sidebar {
-  margin-left: 0px; /* Adjust based on your sidebar width */
+  margin-left: 0px; 
 }
 
-/* When sidebar is hidden — full width */
+
 .top-bar.without_sidebar {
   margin-left: 0;
 }
 
-/* Category icons */
+
 .top-icon {
   flex: 0 0 auto;
   padding: 8px 16px;
@@ -84,7 +84,7 @@
 .thumbnail-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* Maintain thumbnail aspect ratio */
+  aspect-ratio: 16 / 9; 
 }
 
 .thumbnail-box img {
@@ -136,7 +136,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .top-bar.with_sidebar {
-    margin-left: 0; /* Remove sidebar margin on smaller screens */
+    margin-left: 0; 
   }
 
   .show-videos {

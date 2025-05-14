@@ -1,0 +1,387 @@
+/* Base container styling */
+.video-page {
+  background-color: #fff;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-width: 320px; 
+  width: 100%;   
+}
+
+/* Main video section */
+.video-main {
+  flex: 1;
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Video player */
+.video-player {
+  width: 100%;
+}
+
+.video-player-element {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Video details */
+.video-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin: 0;
+}
+
+.video-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video-profile-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.video-profile-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.video-profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.video-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-channel-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f0f0f;
+}
+
+.video-upload-date {
+  font-size: 12px;
+  color: #606060;
+}
+
+.video-subscribe-btn {
+  background-color: #e8e8e8;
+  color: #0f0f0f;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.video-subscribe-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.video-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f1f1f1;
+  padding: 8px 12px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.video-action-like,
+.video-action-dislike,
+.video-action-share,
+.video-action-more {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0f0f0f;
+}
+
+.video-action-share:hover,
+.video-action-more:hover {
+  color: #606060;
+}
+
+.video-like-count {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.video-action-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #ddd;
+}
+
+.video-meta {
+  background-color: #f1f1f1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #606060;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Comments section */
+.video-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.video-comments-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f0f0f;
+}
+
+.video-comment-input {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.video-comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.video-comment-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-comment-input-field {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #0f0f0f;
+  padding: 8px 0;
+}
+
+.video-comment-input-field:focus {
+  outline: none;
+  border-bottom: 1px solid #0f0f0f;
+}
+
+.video-comment-input-field::placeholder {
+  color: #606060;
+}
+
+.video-comment-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.video-comment-cancel,
+.video-comment-submit {
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  background-color: transparent;
+  color: #0f0f0f;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.video-comment-cancel:hover,
+.video-comment-submit:hover {
+  background-color: #e8e8e8;
+}
+
+.video-comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-comment {
+  display: flex;
+  gap: 12px;
+}
+
+.video-comment-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-comment-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.video-comment-channel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f0f0f;
+}
+
+.video-comment-date {
+  font-size: 12px;
+  color: #606060;
+}
+
+.video-comment-text {
+  font-size: 14px;
+  color: #0f0f0f;
+  margin: 0;
+}
+
+/* Suggested videos */
+.video-suggestions {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-suggestions.with-sidebar {
+  max-width: calc(100% - 240px); /* Adjust for sidebar */
+}
+
+.video-suggestions.without-sidebar {
+  max-width: 420px;
+}
+
+.video-suggestion {
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.video-suggestion-thumbnail {
+  width: 168px;
+  aspect-ratio: 16 / 9;
+}
+
+.video-suggestion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.video-suggestion-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video-suggestion-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f0f0f;
+  margin: 0;
+}
+
+.video-suggestion-channel,
+.video-suggestion-meta {
+  font-size: 12px;
+  color: #606060;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .video-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-main {
+    max-width: 100%;
+  }
+
+  .video-suggestions {
+    max-width: 100%;
+  }
+
+  .video-suggestions.with-sidebar {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-title {
+    font-size: 16px;
+  }
+
+  .video-profile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .video-actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .video-suggestion-thumbnail {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-page {
+    padding: 8px;
+  }
+
+  .video-comment-input {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .video-comment-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .video-suggestion {
+    flex-direction: column;
+  }
+
+  .video-suggestion-thumbnail {
+    width: 100%;
+  }
+}

@@ -5,21 +5,32 @@ import SearchIcon from '@mui/icons-material/Search';
 import MicIcon from '@mui/icons-material/Mic';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AddIcon from '@mui/icons-material/Add';
-
-
+import LogIn from './Login';
 import "./NavBar.css";
+import { Link, useNavigate } from 'react-router-dom';
 
-function NavBar({toggeleSideBar}) {
+function NavBar({toggleSideBar }) {
   const [imgUrl, setImgUrl] = useState('https://cdn.vectorstock.com/i/preview-1x/62/38/avatar-13-vector-42526238.jpg');
   const [details, setDetails] = useState(false);
+  const [Login, setLogin] = useState(false)
+  function LoginChecker(value) {
+    if (value == "login") {
+      setLogin(true)
+      setDetails(false)
+    }
+    else {
+      const navigate = useNavigate()
+      navigate('/')
+    }
+  }
   
 
   return (
     <div className='navbar'>
       <div className="left">
-        <MenuIcon sx={{ color: "black" }} className='hover:bg-gray-100 menu-icon' onClick={toggeleSideBar} />
+        <MenuIcon sx={{ color: "black" }} className='hover:bg-gray-100 menu-icon' onClick={()=>toggleSideBar ()} />
         <YouTubeIcon sx={{ color: "red" }} />
-        <p className='font'>YouTube</p>
+        <Link to={'/'} className='font'>YouTube</Link>
       </div>
 
       <div className="mid">
@@ -48,12 +59,13 @@ function NavBar({toggeleSideBar}) {
 
         {details && (
           <div className="details-dropdown">
-            <p>Login</p>
-            <p>Logout</p>
-            <p>Register</p>
+            <p onClick={()=>LoginChecker("login")}>Login</p>
+            <p onClick={()=>LoginChecker("logout")}>Logout</p>
+            <Link to={ "/signup"}><p>Register</p></Link>
           </div>
         )}
       </div>
+      {Login && <LogIn setLogin={setLogin } />}
     </div>  
   );
 }

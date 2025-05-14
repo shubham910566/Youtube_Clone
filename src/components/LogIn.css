@@ -1,0 +1,147 @@
+.auth-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', Arial, sans-serif;
+  z-index: 2300;
+}
+
+.auth-modal-container {
+  width: 400px;
+  max-width: 90%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.auth-modal-header {
+  font-size: 24px;
+  font-weight: 500;
+  color: #030303;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.auth-modal-icon {
+  color: #ff0000;
+}
+
+.auth-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+.auth-modal-input-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-modal-input {
+  width: 100%;
+  height: 48px;
+  color: #030303;
+  padding: 0 16px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  font-family: 'Roboto', Arial, sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.auth-modal-input:focus {
+  border-color: #065fd4;
+  box-shadow: 0 0 0 2px rgba(6, 95, 212, 0.1);
+}
+
+.auth-modal-actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.auth-modal-btn {
+  flex: 1;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.auth-modal-btn:nth-child(1) {
+  background-color: #065fd4;
+  color: #fff;
+  border: none;
+}
+
+.auth-modal-btn:nth-child(1):hover {
+  background-color: #054bb3;
+}
+
+.auth-modal-btn:nth-child(2) {
+  background-color: transparent;
+  color: #065fd4;
+  border: 1px solid #065fd4;
+}
+
+.auth-modal-btn:nth-child(2):hover {
+  background-color: rgba(6, 95, 212, 0.1);
+}
+
+.auth-modal-btn:nth-child(3) {
+  background-color: transparent;
+  color: #606060;
+  border: 1px solid #dadce0;
+}
+
+.auth-modal-btn:nth-child(3):hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 480px) {
+  .auth-modal-container {
+    width: 90%;
+    padding: 16px;
+  }
+
+  .auth-modal-header {
+    font-size: 20px;
+  }
+
+  .auth-modal-input {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .auth-modal-btn {
+    height: 36px;
+    font-size: 13px;
+  }
+}

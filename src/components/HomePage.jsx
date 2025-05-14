@@ -1,5 +1,6 @@
 import React from 'react';
 import "./HomePage.css";
+import { Link } from 'react-router-dom';
 
 function HomePage({ showSideBar }) {
   const options = [
@@ -18,7 +19,7 @@ function HomePage({ showSideBar }) {
         ))}
       </div>
       <div className={`show-videos ${showSideBar ? 'with_sidebar' : 'without_sidebar'}`}>
-        <div className="video-box">
+        <Link to={'/video/121'} className="video-box">
           <div className="thumbnail-box">
             <img src="https://purepng.com/public/uploads/large/purepng.com-youtube-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596145hip8d.png" alt="Video Thumbnail" />
             <p className="time">8:60:20</p>
@@ -28,9 +29,9 @@ function HomePage({ showSideBar }) {
             <p className="channel-name">Channel Name</p>
             <p className="views">123K views</p>
           </div>
-        </div>
+        </Link>
 
-        <div className="video-box">
+        <Link to={'/video/121'} className="video-box">
           <div className="thumbnail-box">
             <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail" />
             <p className="time">8:60:20</p>
@@ -40,9 +41,9 @@ function HomePage({ showSideBar }) {
             <p className="channel-name">Channel Name</p>
             <p className="views">123K views</p>
           </div>
-        </div>
+        </Link>
 
-        <div className="video-box">
+        <Link to={'/video/121'} className="video-box">
           <div className="thumbnail-box">
             <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail" />
             <p className="time">8:60:20</p>
@@ -52,9 +53,9 @@ function HomePage({ showSideBar }) {
             <p className="channel-name">Channel Name</p>
             <p className="views">123K views</p>
           </div>
-        </div>
+        </Link>
 
-        <div className="video-box">
+        <Link to={'/video/121'} className="video-box">
           <div className="thumbnail-box">
             <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail" />
             <p className="time">8:60:20</p>
@@ -64,7 +65,7 @@ function HomePage({ showSideBar }) {
             <p className="channel-name">Channel Name</p>
             <p className="views">123K views</p>
           </div>
-        </div>
+        </Link>
       </div>
 
     </div>

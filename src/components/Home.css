@@ -3,7 +3,9 @@
     padding:2px;
     display: flex;
     width: 100%;  
+    overflow: auto;
 }
+
 
 .homepage{
     margin-left:0px;
