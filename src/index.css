@@ -1,7 +1,14 @@
-/* Optional global styles */
+/* Global styles */
+:root {
+  --font-stack: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-stack);
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal overflow globally */
+  overflow-x: hidden;
+  line-height: 1.5; /* Improved readability */
+  -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+  min-height: 100vh; /* Ensure full viewport height */
 }

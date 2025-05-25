@@ -1,10 +1,10 @@
-/* app.css */
 .app {
   display: flex;
   flex-direction: column;
-  margin: 0; /* Remove margin to prevent overflow */
+  margin: 0;
   width: 100%;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-x: hidden; 
+  box-sizing: border-box;
 }
 
 .home-page {

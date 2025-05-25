@@ -1,11 +1,12 @@
 /* Base homepage content styling */
 *{
-  overflow-x: none;
+  overflow-x: auto;
 }
 
 .homepage-content {
   background-color: #fff;
   padding: 16px;
+  padding-top: 50px;
   overflow-x: hidden;
 }
 
@@ -13,7 +14,7 @@
 .top-bar {
   display: flex;
   flex-direction: row;
-  overflow-x: hidden;
+  overflow-x: auto;
   white-space: nowrap;
   gap: 12px;
   padding: 10px 0;
@@ -31,7 +32,7 @@
 
 
 .top-bar.without_sidebar {
-  margin-left: 0;
+  margin-left: 60px;
 }
 
 
@@ -52,6 +53,13 @@
   background-color: #e0e0e0;
 }
 
+.top-icon.active {
+  background-color: #065fd4;
+  color: white;
+  border-color: #065fd4;
+}
+
+
 /* ------------------Video grid styling-------------------- */
 /* Video grid styling */
 
@@ -59,9 +67,7 @@
   display: grid;
   gap: 16px;
   overflow-x: hidden;
-  padding: 16px 0;
-  margin-left: 30px;
-  margin-right: 0px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
  
 }
 
@@ -70,14 +76,19 @@
   
 }
 
-/* 4 videos per row when sidebar is hidden */
+
 .show-videos.without_sidebar {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 60px;
+  gap: 50px;
+
+
 }
 .video-box {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 320px;
+  
 }
 
 /* Thumbnail box styling */
@@ -88,7 +99,7 @@
 }
 
 .thumbnail-box img {
-  width: 250px;
+  width: 100%;
   background-color: #606060;
   height: 100%;
   object-fit: cover;
@@ -111,8 +122,15 @@
 .video_detail_box {
   padding: 8px 0;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  gap: 10px;
+}
+.video_detail_box .img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .video_detail_box .title {
@@ -140,12 +158,39 @@
   }
 
   .show-videos {
+    width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    overflow: visible;
+
   }
+}
+
+@media (max-width: 768px) {
+   .video-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Let it scale based on the grid column size */
+  max-width: 100%;
+  }
+
+  .show-videos {        
+        grid-template-columns: repeat(2, 1fr); /* Ensures two videos per row */       
+        margin-left: 0 !important;
+  }
+  .top-bar{
+    margin-left: 0 !important;
+  }
+ 
+ 
 }
 
 @media (max-width: 480px) {
   .show-videos {
-    grid-template-columns: 1fr; /* Single column on very small screens */
+    display: flex;
+    margin-left: 0px !important;
+    flex-direction: column;
+    justify-content: center;
+    grid-template-columns: 1fr;
   }
+  
 }

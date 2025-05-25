@@ -10,6 +10,7 @@ import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   const subscriptions = [
@@ -24,10 +25,10 @@ function Sidebar() {
     <div className="sidebar-main bg-white h-screen w-64 p-4 shadow-md overflow-visible">
       {/* Navigation Section */}
       <div className="sidebar-top">
-        <div className="field">
+        <Link to='/' className="field">
           <HomeIcon className="icon" />
           <span>Home</span>
-        </div>
+        </Link>  
         <div className="field">
           <PlayArrowIcon className="icon" />
           <span>Shorts</span>

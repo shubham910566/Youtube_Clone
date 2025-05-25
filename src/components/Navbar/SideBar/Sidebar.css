@@ -1,0 +1,101 @@
+@import "tailwindcss";
+*{
+overflow-x: auto;
+}
+
+
+.sidebar-main {
+  color: #000;
+  font-family: sans-serif;
+  width: 250px;
+  z-index: 4000;
+  scrollbar-width: none;
+  padding-top: 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+.top,
+.my-collection,
+.subscriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.field:hover {
+  background-color: #f3f4f6; /* Tailwind's gray-100 */
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 16px;
+  color: #555;
+}
+
+.channel-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280; /* Tailwind gray-500 */
+  text-transform: uppercase;
+  margin-left: 12px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .top,
+  .my-collection {
+    display: none !important;
+  }
+
+  .subscriptions {
+    display: flex !important;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .section-title {
+    display: block;
+    font-size: 12px;
+    margin-left: 12px;
+    margin-bottom: 4px;
+  }
+
+  .field {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+
+  .channel-img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .icon {
+    font-size: 18px;
+    margin-right: 12px;
+  }
+}
+

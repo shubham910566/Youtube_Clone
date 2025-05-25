@@ -1,0 +1,371 @@
+/* MyChannelPage.css */
+.profile-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.profile-content {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.with-sidebar {
+  margin-left: 0px; 
+}
+
+.without-sidebar {
+  margin-left: 0;
+}
+
+/* Banner */
+.profile-banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+}
+
+.profile-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+.profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-channel-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #030303;
+}
+
+.profile-meta {
+  font-size: 14px;
+  color: #606060;
+  margin: 5px 0;
+}
+
+.profile-description {
+  font-size: 14px;
+  color: #030303;
+  margin: 10px 0;
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.profile-tab-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #606060;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.profile-tab-btn:hover {
+  color: #030303;
+}
+
+.profile-tab-btn.active {
+  color: #030303;
+  border-bottom: 2px solid #030303;
+}
+
+/* Tab Content */
+.profile-tab-content {
+  padding: 20px 0;
+}
+
+/* Featured Video */
+.profile-featured {
+  max-width: 560px;
+}
+
+.profile-featured-video {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-featured-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.profile-featured-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #030303;
+  margin: 0;
+}
+
+.profile-featured-meta {
+  font-size: 14px;
+  color: #606060;
+}
+
+/* Videos Grid */
+.profile-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.profile-video-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.profile-video-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-video-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
+
+.profile-video-thumbnail-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.profile-video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.profile-video-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  color: #030303;
+}
+
+.profile-video-meta {
+  font-size: 12px;
+  color: #606060;
+  margin: 0 10px 10px;
+}
+
+.profile-video-actions {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.delete-btn,
+.edit-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.delete-btn {
+  background: #ff0000;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #cc0000;
+}
+/* Delete Dialog Styles */
+.delete-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.delete-dialog-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  font-family: var(--font-main, 'Inter', sans-serif);
+}
+
+.delete-dialog-content h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--primary-color, #000);
+}
+
+.delete-dialog-content p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #606060;
+}
+
+.delete-dialog-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.delete-dialog-cancel,
+.delete-dialog-confirm {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-dialog-cancel {
+  background-color: var(--gray-bg, #dcd8d8);
+  color: var(--primary-color, #000);
+}
+
+.delete-dialog-cancel:hover {
+  background-color: var(--hover-bg, #f2f2f2);
+}
+
+.delete-dialog-confirm {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+.delete-dialog-confirm:hover {
+  background-color: #b71c1c;
+}
+.edit-btn {
+  background: #065fd4;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #054bb4;
+}
+
+/* No Content */
+.profile-no-videos {
+  font-size: 16px;
+  color: #606060;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-content {
+    padding: 10px;
+  }
+
+  .with-sidebar {
+    margin-left: 0; /* Sidebar might be hidden on mobile */
+  }
+
+  .profile-banner {
+    height: 150px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-channel-name {
+    font-size: 20px;
+  }
+
+  .profile-tabs {
+    flex-wrap: wrap;
+  }
+
+  .profile-tab-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .profile-videos {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-videos {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-featured {
+    max-width: 100%;
+  }
+}

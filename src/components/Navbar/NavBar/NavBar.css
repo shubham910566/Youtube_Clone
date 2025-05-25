@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --gray-bg: #eaeaea;
+  --hover-bg: #f2f2f2;
+  --font-main: "Inter", sans-serif;
+  --primary-color: black;
+  --accent-color: rgb(20, 1, 1);
+}
+
+/* ---------- Global Styles ---------- */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  overflow-y: auto;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background-color: white;
+  position: fixed;
+  top:0px;
+  height: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  color: var(--accent-color);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: visible;
+  white-space: nowrap;
+  margin:auto;
+  z-index: 1000;
+}
+
+/* ---------- Left Section ---------- */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: fit-content;
+}
+
+.menu-icon,
+.youtube-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #111;
+}
+
+.font {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* ---------- Mid Section (Search) ---------- */
+.mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  gap: 6px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  overflow: hidden;
+  flex: 1;
+  max-width: 500px;
+}
+
+.search-box {
+  height: 32px;
+  flex: 1;
+  min-width: 0;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.search-icon {
+  background-color: var(--gray-bg);
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon:hover {
+  background-color: var(--hover-bg);
+}
+
+.mic-icon {
+  background-color: var(--gray-bg);
+  border-radius: 50%;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mic-icon:hover {
+  background-color: var(--hover-bg);
+}
+
+/* ---------- Right Section ---------- */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: fit-content;
+}
+
+.create-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background-color: var(--gray-bg);
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.create-button:hover {
+  background-color: var(--hover-bg);
+}
+
+.bell {
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.bell:hover {
+  background-color: var(--hover-bg);
+}
+
+.profile img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ---------- Dropdown ---------- */
+.details-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 999;
+  min-width: 150px;
+}
+
+.details-dropdown p {
+  margin: 0;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.details-dropdown p:hover {
+  background-color: var(--hover-bg);
+}
+
+/* ---------- Sign In ---------- */
+.sign-in-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border: 1px solid #065fd4;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #065fd4;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sign-in-container:hover {
+  background-color: #e6f0ff;
+}
+
+.sign-in-text {
+  white-space: nowrap;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .search-box {
+    font-size: 13px;
+    max-width: 220px;
+  }
+
+  .search-icon {
+    padding: 6px 10px;
+  }
+
+  .mic-icon {
+    display: none;
+  }
+
+  .create-button {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+
+  .sign-in-text {
+    display: none;
+  }
+
+  .navbar {
+    gap: 8px;
+    padding: 4px 6px;
+  }
+
+  .font {
+    font-size: 12px;
+  }
+
+  .details-dropdown {
+    top: 45px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-box {
+    font-size: 12px;
+    max-width: 150px;
+  }
+
+  .create-button {
+    font-size: 11px;
+    padding: 2px 5px;
+  }
+
+  .right {
+    gap: 6px;
+  }
+
+  .navbar {
+    padding: 2px 4px;
+  }
+
+  .youtube-icon,
+  .menu-icon {
+    font-size: 18px;
+  }
+
+  .font {
+    font-size: 11px;
+  }
+
+  .details-dropdown {
+    font-size: 13px;
+    right: 2px;
+    top: 44px;
+    width: 140px;
+  }
+}

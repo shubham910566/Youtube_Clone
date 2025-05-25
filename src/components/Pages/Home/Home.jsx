@@ -1,15 +1,15 @@
 import React from 'react'
-import Sidebar from './Sidebar'
-import HomePage from './HomePage'
+import Sidebar from '../../Navbar/SideBar/Sidebar'
+import HomePage from '../HomePage/HomePage'
 
-function Home({showSideBar}) {
+function Home({showSideBar,searchQuery}) {
   return (
     <div className="home-page">
       <div className="sidebar">
         {showSideBar && <Sidebar />}
       </div>
       <div className="homepage">
-        <HomePage showSideBar={showSideBar} />
+        <HomePage showSideBar={showSideBar} searchQuery={searchQuery} />
       </div>
       
     </div>
