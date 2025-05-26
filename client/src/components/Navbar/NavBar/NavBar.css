@@ -213,7 +213,6 @@ body {
 @media (max-width: 768px) {
   .search-box {
     font-size: 13px;
-    max-width: 220px;
   }
 
   .search-icon {

@@ -1,15 +1,17 @@
 /* VideoPage.css */
 .video-page {
   display: flex;
+  position: relative;
   flex-direction: row;
   gap: 24px;
   padding: 24px;
   max-width: 1280px;
-  margin: 0 auto;
+  margin-top: 25px;
   background-color: #f9f9f9;
   min-height: 100vh;
   box-sizing: border-box;
 }
+
 
 .video-main {
   flex: 1;
@@ -399,6 +401,9 @@
 @media (max-width: 480px) {
   .video-page {
     padding: 12px;
+  }
+  .video-main{
+    border-bottom: 1px rgb(172, 161, 161) solid;
   }
 
   .video-title {

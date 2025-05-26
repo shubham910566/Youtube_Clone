@@ -8,6 +8,7 @@
   padding: 16px;
   padding-top: 50px;
   overflow-x: hidden;
+  z-index: 100;
 }
 
 /* Base top bar styling */

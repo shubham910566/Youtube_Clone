@@ -171,7 +171,9 @@ const VideoPage = ({ showSideBar }) => {
   if (!video) return <div>Failed to load video</div>;
 
   return (
-    <div className="video-page">
+  
+    <div className={`video-page ${showSideBar ? 'sidebar-active' : ''}`}>
+       
       <div className="video-main">
         <div className="video-player">
           <video width="100%" controls autoPlay className="video-player-element">
@@ -341,8 +343,10 @@ const VideoPage = ({ showSideBar }) => {
               </Link>
             ))
         )}
-      </div>
-      <ToastContainer />
+        </div>
+
+        <ToastContainer />
+        
     </div>
   );
 };

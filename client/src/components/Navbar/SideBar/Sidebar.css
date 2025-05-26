@@ -8,11 +8,13 @@ overflow-x: auto;
   color: #000;
   font-family: sans-serif;
   width: 250px;
+  padding-left: 0px;
+  height: auto;
   z-index: 4000;
   scrollbar-width: none;
-  padding-top: 50px;
+  margin-top: 20px;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: visible;
 
 }
 
