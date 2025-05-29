@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom'; 
 import NavBar from './components/Navbar/Navbar/NavBar';
 import Home from './components/Pages/Home/Home';
-import VideoPage from './components/Pages/Video/VideoPage';
+import VideoPage from './components/Pages/VideoPlayer/VideoPage';
 import './app.css';
 import ProfilePage from './components/Pages/Profile/ProfilePage';
 import SignUp from './components/Pages/SignUp/SignUp';

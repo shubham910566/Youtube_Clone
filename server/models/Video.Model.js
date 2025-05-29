@@ -25,14 +25,8 @@
             type:String,
             default:"All"
         },
-        like:{
-            type:Number,
-            default:0
-        },
-        dislike:{
-            type:Number,
-            default:0
-        }
+        likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+        dislike: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
         
     }, { timestamps: true })
 

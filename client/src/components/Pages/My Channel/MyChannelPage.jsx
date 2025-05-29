@@ -1,4 +1,4 @@
-// React and related dependencies
+
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../Navbar/SideBar/Sidebar';
 import { Link, useParams } from 'react-router-dom';
@@ -7,8 +7,6 @@ import axios from 'axios';
 // Notifications
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// Component styling
 import './MyChannelPage.css';
 
 const MyChannelPage = ({ showSideBar }) => {

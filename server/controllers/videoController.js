@@ -182,65 +182,83 @@ export async function editVideo(req, res) {
 }
 
 /**
- * Increases the like count for a video.
+ * Toggles like for a video.
  */
 export async function likeVideo(req, res) {
   try {
     const { id } = req.params;
+    const userId = req.user._id;
 
-    const video = await Video.findById(id);
+    const video = await Video.findById(id).populate(
+      "user",
+      "channelName profilePic userName createdAt"
+    );
     if (!video) {
-      return res.status(404).json({
-        success: false,
-        message: "Video not found.",
-      });
+      return res.status(404).json({ success: false, message: "Video not found." });
     }
 
-    video.like += 1;
+    const isLiked = video.likes.includes(userId);
+
+    if (isLiked) {
+      // unlike: Remove user from likes
+      video.likes = video.likes.filter((uid) => uid.toString() !== userId.toString());
+    } else {
+      // like: Add user to likes, remove from dislikes
+      video.likes.push(userId);
+      video.dislike = video.dislike.filter((uid) => uid.toString() !== userId.toString());
+    }
+
     await video.save();
 
     res.status(200).json({
       success: true,
-      message: "Video liked.",
-      video,
+      message: isLiked ? "Video unliked." : "Video liked.",
+      video, // Return full video object
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Could not like the video.",
-      error,
-    });
+    console.error("Like error:", error);
+    res.status(500).json({ success: false, message: "Could not like the video.", error });
   }
 }
 
 /**
- * Increases the dislike count for a video.
+ * Toggles dislike for a video.
  */
 export async function dislikeVideo(req, res) {
   try {
     const { id } = req.params;
+    const userId = req.user._id;
 
-    const video = await Video.findById(id);
+    const video = await Video.findById(id).populate(
+      "user",
+      "channelName profilePic userName createdAt"
+    );
     if (!video) {
-      return res.status(404).json({
-        success: false,
-        message: "Video not found.",
-      });
+      return res.status(404).json({ success: false, message: "Video not found." });
     }
 
-    video.dislike += 1;
+    const isDisliked = video.dislike.includes(userId);
+
+    if (isDisliked) {
+      // undislike: Remove user from dislikes
+      video.dislike = video.dislike.filter((uid) => uid.toString() !== userId.toString());
+    } else {
+      // Dislike: Add user to dislikes, remove from likes
+      video.dislike.push(userId);
+      video.likes = video.likes.filter((uid) => uid.toString() !== userId.toString());
+    }
+
     await video.save();
 
     res.status(200).json({
       success: true,
-      message: "Video disliked.",
-      video,
+      message: isDisliked ? "Video undisliked." : "Video disliked.",
+      video, // Return full video object
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Could not dislike the video.",
-      error,
-    });
+    console.error("Dislike error:", error);
+    res.status(500).json({ success: false, message: "Could not dislike the video.", error });
   }
 }
+
+

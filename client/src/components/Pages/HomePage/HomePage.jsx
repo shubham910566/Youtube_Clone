@@ -67,7 +67,7 @@ function HomePage({ showSideBar, searchQuery }) {
       <div className={`show-videos ${showSideBar ? 'with_sidebar' : 'without_sidebar'}`}>
         {data.length > 0 ? (
           data.map((item) => (
-            <Link to={`/video/${item._id}`} className="video-box" key={item._id}>
+            <Link to={`/video/${item._id}`} className={`video-box ${showSideBar ? 'with_sidebar' : 'without_sidebar'}`} key={item._id}>
               <div className="thumbnail-box">
                 <img src={item.thumbnail} alt="Video Thumbnail" />
                 <p className="time">07:40</p> {/* Placeholder time */}

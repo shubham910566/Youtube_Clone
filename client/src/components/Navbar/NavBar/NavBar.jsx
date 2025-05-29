@@ -10,6 +10,8 @@ import LogIn from '../../Pages/LogIn/LogIn';
 import './NavBar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function NavBar({ toggleSideBar, onSearch }) {
   const [imgUrl, setImgUrl] = useState('https://cdn.vectorstock.com/i/preview-1x/62/38/avatar-13-vector-42526238.jpg');
@@ -17,6 +19,7 @@ function NavBar({ toggleSideBar, onSearch }) {
   const [loginOpen, setLoginOpen] = useState(false);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [userChannelId, setUserChannelId] = useState(localStorage.getItem("UserChannelId") || null);
   const navigate = useNavigate();
 
   // Initialize state based on localStorage and fetch channel ID
@@ -32,6 +35,7 @@ function NavBar({ toggleSideBar, onSearch }) {
         .then(response => {
           if (response.data) {
             localStorage.setItem("UserChannelId", response.data._id);
+            setUserChannelId(response.data._id);
           }
         })
         .catch(err => console.error("Channel fetch failed:", err));
@@ -46,8 +50,8 @@ function NavBar({ toggleSideBar, onSearch }) {
     } else {
       localStorage.clear();
       setUserLoggedIn(false);
-      setTimeout(() => {
-        setDetails(false);
+      setDetails(false);
+      setTimeout(() => {        
         setImgUrl('https://cdn.vectorstock.com/i/preview-1x/62/38/avatar-13-vector-42526238.jpg');
         navigate('/');
         window.location.reload();
@@ -59,7 +63,7 @@ function NavBar({ toggleSideBar, onSearch }) {
   const handleSearchClick = () => {
     onSearch(searchTerm.trim() || '');
   };
-
+ 
   // Navigate to user's channel page
   const goToMyChannel = () => {
     const userId = localStorage.getItem("UserId");
@@ -70,7 +74,7 @@ function NavBar({ toggleSideBar, onSearch }) {
       navigate(`/mychannel/${userId}`);
     }
   };
-
+  
   return (
     <div className='navbar'>
       <div className="left">
@@ -98,11 +102,21 @@ function NavBar({ toggleSideBar, onSearch }) {
 
       <div className="right">
         {userLoggedIn && (
-          <Link to='/upload-video' className="create-button">
-            <AddIcon sx={{ color: 'black', fontSize: '20px' }} />
-            <p className='text'>Create</p>
-          </Link>
-        )}
+  <button
+    className="create-button"
+    onClick={() => {
+      if (!userChannelId) {
+        toast.error('Please create a channel first');
+      } else {
+        window.location.href = "/upload-video"; // Redirect manually
+      }
+    }}
+  >
+    <AddIcon sx={{ color: 'black', fontSize: '20px' }} />
+    <p className="text">Create</p>
+  </button>
+)}
+
 
         <div className="bell">
           <NotificationsIcon sx={{ color: 'black', fontSize: '25px' }} />
@@ -139,6 +153,7 @@ function NavBar({ toggleSideBar, onSearch }) {
       </div>
 
       {loginOpen && <LogIn setLogin={setLoginOpen} />}
+      <ToastContainer/>
     </div>
   );
 }

@@ -6,10 +6,15 @@
 .homepage-content {
   background-color: #fff;
   padding: 16px;
+  width: 100%;
   padding-top: 50px;
+  position: relative;
   overflow-x: hidden;
   z-index: 100;
 }
+
+
+
 
 /* Base top bar styling */
 .top-bar {
@@ -85,9 +90,17 @@
 
 
 }
-.video-box {
+.video-box.without_sidebar {
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 340px;
+  
+}
+.video-box.with_sidebar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 320px;
   
 }
@@ -153,29 +166,37 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1025px) {
   .top-bar.with_sidebar {
     margin-left: 0; 
   }
 
   .show-videos {
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr) !important;
     overflow: visible;
 
+
+  }
+  .video-box.without_sidebar{
+    display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 320px;
+    
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1155px) {
    .video-box {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Let it scale based on the grid column size */
+  width: 100%; 
   max-width: 100%;
   }
 
   .show-videos {        
-        grid-template-columns: repeat(2, 1fr); /* Ensures two videos per row */       
+        grid-template-columns: repeat(2, 1fr) !important; /* Ensures two videos per row */       
         margin-left: 0 !important;
   }
   .top-bar{

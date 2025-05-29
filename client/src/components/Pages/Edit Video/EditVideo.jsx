@@ -14,10 +14,13 @@ function EditVideo() {
     title: '',
     description: '',
     videoType: '',
+    videoLink: '',
+    thumbnail: '', 
   });
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [thumbnailFile, setThumbnailFile] = useState(null); // State for thumbnail file
 
   // Fetch video details on component mount
   useEffect(() => {
@@ -26,8 +29,8 @@ function EditVideo() {
         const res = await axios.get(`http://localhost:8000/api/video/${id}`, {
           withCredentials: true,
         });
-        const { title, description, videoType } = res.data.video;
-        setVideoData({ title, description, videoType });
+        const { title, description, videoType,  thumbnail } = res.data.video;
+        setVideoData({ title, description, videoType, thumbnail });
       } catch (err) {
         setError('Failed to fetch video data');
         toast.error('Failed to fetch video data');
@@ -37,9 +40,39 @@ function EditVideo() {
     fetchVideo();
   }, [id]);
 
-  // Handle input changes
+  // Handle input changes for text fields
   const handleChange = (e, field) => {
     setVideoData((prev) => ({ ...prev, [field]: e.target.value }));
+  };
+
+  // Handle thumbnail file selection
+  const handleThumbnailChange = (e) => {
+    setThumbnailFile(e.target.files[0]);
+  };
+
+  // Upload thumbnail to Cloudinary
+  const uploadThumbnail = async () => {
+    if (!thumbnailFile) return videoData.thumbnail; // Return existing thumbnail if no new file
+
+    const data = new FormData();
+    data.append('file', thumbnailFile);
+    data.append('upload_preset', 'Youtube_capstone'); // Ensure this matches your Cloudinary preset
+
+    try {
+      setIsLoading(true);
+      const response = await axios.post(
+        'https://api.cloudinary.com/v1_1/dclowgl6x/image/upload',
+        data
+      );
+      return response.data.url; // Return the uploaded thumbnail URL
+    } catch (err) {
+      setError('Thumbnail upload failed');
+      toast.error('Thumbnail upload failed');
+      console.error(err);
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Submit updated video
@@ -55,9 +88,17 @@ function EditVideo() {
 
     try {
       setIsLoading(true);
+      let updatedVideoData = { ...videoData };
+
+      // Upload thumbnail if a new file is selected
+      if (thumbnailFile) {
+        const thumbnailUrl = await uploadThumbnail();
+        updatedVideoData = { ...updatedVideoData, thumbnail: thumbnailUrl };
+      }
+
       await axios.put(
         `http://localhost:8000/api/video/${id}`,
-        videoData,
+        updatedVideoData,
         { withCredentials: true }
       );
       toast.success('Video updated successfully');
@@ -96,6 +137,32 @@ function EditVideo() {
         value={videoData.videoType}
         onChange={(e) => handleChange(e, 'videoType')}
       />
+
+      <input
+        type="text"
+        className="upload-input"
+        placeholder="Video Link"
+        value={videoData.videoLink}
+        onChange={(e) => handleChange(e, 'videoLink')}
+      />
+
+      <input
+        type="file"
+        className="upload-input"
+        accept="image/*"
+        onChange={handleThumbnailChange}
+      />
+
+      {videoData.thumbnail && (
+        <div className="thumbnail-preview">
+          <p>Current Thumbnail:</p>
+          <img
+            src={videoData.thumbnail}
+            alt="Thumbnail Preview"
+            style={{ maxWidth: '200px', marginTop: '10px' }}
+          />
+        </div>
+      )}
 
       <div className="button-group">
         <button

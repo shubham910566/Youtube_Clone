@@ -1,13 +1,14 @@
 @import "tailwindcss";
 *{
 overflow-x: auto;
+
 }
 
 
 .sidebar-main {
   color: #000;
   font-family: sans-serif;
-  width: 250px;
+  width: 240px;
   padding-left: 0px;
   height: auto;
   z-index: 4000;
@@ -17,6 +18,7 @@ overflow-x: auto;
   overflow-x: visible;
 
 }
+
 
 .top,
 .my-collection,
