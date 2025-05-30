@@ -81,7 +81,28 @@ const MyChannelPage = ({ showSideBar }) => {
         return (
           <div className="profile-videos">
             {videos.length > 0 ? (
-              videos.map((video) => (
+              
+              videos.map((video) => {
+                // to see when video was created in hours, days or minutes
+                const createdAt = new Date(video.createdAt);
+                const now = new Date();
+                const diffInMs = now - createdAt;
+                const daysAgo = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+                let timeAgo;
+                if (daysAgo > 0) {
+                  timeAgo = `${daysAgo} days ago`;
+                } else {
+                  const hoursAgo = Math.floor(diffInMs / (1000 * 60 * 60));
+                  if (hoursAgo > 0) {
+                    timeAgo = `${hoursAgo} hours ago`;
+                  } else {
+                    const minutesAgo = Math.floor(diffInMs / (1000 * 60));
+                    timeAgo = `${minutesAgo} minutes ago`;
+                  }
+                }
+
+                 return(
                 <div key={video._id} className="profile-video-card">
                   <Link to={`/video/${video._id}`} className="profile-video-link">
                     <div className="profile-video-thumbnail-container">
@@ -95,7 +116,7 @@ const MyChannelPage = ({ showSideBar }) => {
                     </div>
                     <h3 className="profile-video-title">{video.title}</h3>
                     <p className="profile-video-meta">
-                      20k views . 10 days ago {/* Hardcoded views and date placeholder */}
+                      20k views · {timeAgo}  {/* Hardcoded views  */}
                     </p>
                   </Link>
                   <div className="profile-video-actions">
@@ -107,7 +128,7 @@ const MyChannelPage = ({ showSideBar }) => {
                     </Link>
                   </div>
                 </div>
-              ))
+              )})
             ) : (
               <p className="profile-no-videos">No videos available</p>
             )}
@@ -149,7 +170,7 @@ const MyChannelPage = ({ showSideBar }) => {
 
   return (
     <div className="profile-container">
-      {showSideBar && <Sidebar />}
+    
 
       <div className={showSideBar ? 'profile-content with-sidebar' : 'profile-content without-sidebar'}>
         {channel && (
@@ -213,7 +234,7 @@ const MyChannelPage = ({ showSideBar }) => {
           </div>
         )}
       </div>
-      <ToastContainer />
+      <ToastContainer style={{overflow:"hidden"}}/>
     </div>
   );
 };

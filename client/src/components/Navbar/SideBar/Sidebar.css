@@ -64,42 +64,31 @@ overflow-x: auto;
 }
 
 @media (max-width: 768px) {
-  .top,
-  .my-collection {
-    display: none !important;
+  /* hide all text spans in the sidebar fields */
+  .sidebar-main
+  {
+    width: 70px;
+  }
+  .subscriptions{
+    display: none;
+  }
+  .sidebar-main .field span {
+    display: none;
   }
 
-  .subscriptions {
-    display: flex !important;
-    flex-direction: column;
-    gap: 8px;
+  /* Optional: center the icon within the .field */
+  .sidebar-main .field {
+    justify-content: center;
   }
 
-  .section-title {
-    display: block;
-    font-size: 12px;
-    margin-left: 12px;
-    margin-bottom: 4px;
+  /* if you had padding-left/right for text, remove it */
+  .sidebar-main .field {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  .field {
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-  }
-
-  .channel-img {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .icon {
-    font-size: 18px;
-    margin-right: 12px;
+  /* reduce the gap so fields don’t leave empty space */
+  .sidebar-main {
+    padding-left: 0;
   }
 }
-

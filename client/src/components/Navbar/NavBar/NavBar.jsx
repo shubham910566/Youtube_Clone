@@ -79,7 +79,7 @@ function NavBar({ toggleSideBar, onSearch }) {
     <div className='navbar'>
       <div className="left">
         <MenuIcon className='hover:bg-gray-100 menu-icon' onClick={toggleSideBar} />
-        <YouTubeIcon sx={{ color: "red" }} className='youtube-icon' />
+        <Link to={'/'}> <YouTubeIcon sx={{ color: "red" }} className='youtube-icon' /></Link>       
         <Link to={'/'} className='font'>YouTube</Link>
       </div>
 
@@ -153,7 +153,7 @@ function NavBar({ toggleSideBar, onSearch }) {
       </div>
 
       {loginOpen && <LogIn setLogin={setLoginOpen} />}
-      <ToastContainer/>
+      <ToastContainer style={{overflow:"hidden"}}/>
     </div>
   );
 }

@@ -66,24 +66,44 @@ function HomePage({ showSideBar, searchQuery }) {
       {/* Video display section */}
       <div className={`show-videos ${showSideBar ? 'with_sidebar' : 'without_sidebar'}`}>
         {data.length > 0 ? (
-          data.map((item) => (
-            <Link to={`/video/${item._id}`} className={`video-box ${showSideBar ? 'with_sidebar' : 'without_sidebar'}`} key={item._id}>
-              <div className="thumbnail-box">
-                <img src={item.thumbnail} alt="Video Thumbnail" />
-                <p className="time">07:40</p> {/* Placeholder time */}
-              </div>
-              <div className="video_detail_box">
-                <div className="image">
-                  <img src={item.user?.profilePic} className='img' />
+          data.map((item) => {
+            // to see when video was created in hours, days or minutes
+                const createdAt = new Date(item.createdAt);
+                const now = new Date();
+                const diffInMs = now - createdAt;
+                const daysAgo = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+                let timeAgo;
+                if (daysAgo > 0) {
+                  timeAgo = `${daysAgo} days ago`;
+                } else {
+                  const hoursAgo = Math.floor(diffInMs / (1000 * 60 * 60));
+                  if (hoursAgo > 0) {
+                    timeAgo = `${hoursAgo} hours ago`;
+                  } else {
+                    const minutesAgo = Math.floor(diffInMs / (1000 * 60));
+                    timeAgo = `${minutesAgo} minutes ago`;
+                  }
+                }
+            return (
+              <Link to={`/video/${item._id}`} className={`video-box ${showSideBar ? 'with_sidebar' : 'without_sidebar'}`} key={item._id}>
+                <div className="thumbnail-box">
+                  <img src={item.thumbnail} alt="Video Thumbnail" />
+                  <p className="time">07:40</p> {/* Placeholder time */}
                 </div>
-                <div className="text">
-                  <b className="title">{item.title}</b>
-                  <p className="channel-name">{item.user?.channelName}</p>
-                  <p className="views">{item.views || 20}k views . 11 hours ago</p> {/* Static timestamp */}
+                <div className="video_detail_box">
+                  <div className="image">
+                    <img src={item.user?.profilePic} className='img' />
+                  </div>
+                  <div className="text">
+                    <b className="title">{item.title}</b>
+                    <p className="channel-name">{item.user?.channelName}</p>
+                    <p className="views">{item.views || 20}k views . {timeAgo}</p> {/* Static timestamp */}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))
+              </Link>
+            )
+          })
         ) : (
           <p>No videos found.</p>
         )}

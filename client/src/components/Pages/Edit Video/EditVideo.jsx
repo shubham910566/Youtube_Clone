@@ -181,7 +181,7 @@ function EditVideo() {
       </div>
 
       {error && <p className="error-text">{error}</p>}
-      <ToastContainer />
+      <ToastContainer style={{overflow:"hidden"}}/>
     </div>
   );
 }

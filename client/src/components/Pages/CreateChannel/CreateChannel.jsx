@@ -107,7 +107,7 @@ function CreateChannel() {
           {isLoading ? 'Creating...' : 'Create Channel'}
         </button>
       </div>
-      <ToastContainer />
+      <ToastContainer style={{overflow:"hidden"}}/>
     </div>
   );
 }

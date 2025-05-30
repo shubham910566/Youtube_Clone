@@ -88,7 +88,7 @@ const LogIn = ({ setLogin }) => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer style={{overflow:"hidden"}}/>
     </div>
   );
 };

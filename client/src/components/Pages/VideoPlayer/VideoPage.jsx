@@ -8,11 +8,11 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Sidebar from "../../Navbar/SideBar/Sidebar";
+
 
 import "./VideoPage.css";
 
-const VideoPage = ({ showSideBar }) => {
+const VideoPage = () => { 
   const { id } = useParams();
   const [video, setVideo] = useState(null);
   const [comments, setComments] = useState([]);
@@ -100,7 +100,7 @@ const handleLike = async () => {
 
     setIsLiking(true);
     try {
-      // Optimistic update
+
       const isLiked = video.likes.includes(userId);
       const updatedLikes = isLiked
         ? video.likes.filter((id) => id !== userId)
@@ -153,7 +153,7 @@ const handleLike = async () => {
 
     setIsDisliking(true);
     try {
-      // Optimistic update
+
       const isDisliked = video.dislike.includes(userId);
       const updatedDislikes = isDisliked
         ? video.dislike.filter((id) => id !== userId)
@@ -260,7 +260,7 @@ const handleLike = async () => {
   if (!video) return <div>Failed to load video</div>;
 
   return (
-    <div className={`video-page ${showSideBar ? "sidebar-active" : ""}`}>
+      <div className="video-page">
       <div className="video-main">
         <div className="video-player">
           {isYouTubeUrl(video.videoLink) ? (
@@ -426,7 +426,7 @@ const handleLike = async () => {
         </div>
       </div>
 
-      <div className={`video-suggestions ${showSideBar ? "with-sidebar" : "without-sidebar"}`}>
+      <div className="video-suggestions"> 
         {suggestionVideos.length === 0 ? (
           <div>No suggested videos available</div>
         ) : (
@@ -451,7 +451,7 @@ const handleLike = async () => {
         )}
       </div>
 
-      <ToastContainer />
+      <ToastContainer style={{overflow:"hidden"}}/>
     </div>
   );
 };

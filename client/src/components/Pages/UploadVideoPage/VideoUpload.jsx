@@ -89,13 +89,13 @@ function VideoUpload() {
 
     const data = new FormData();
     data.append("file", video);
-    data.append("upload_preset", "youtube-clone");
+    data.append("upload_preset", "Youtube_capstone");
 
     try {
       setIsLoading(true);
       setError(null);
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dldpmvy2l/video/upload",
+        "https://api.cloudinary.com/v1_1/dclowgl6x/video/upload",
         data
       );
       const videoUrl = response.data.url;
@@ -117,13 +117,13 @@ function VideoUpload() {
 
     const data = new FormData();
     data.append("file", image);
-    data.append("upload_preset", "youtube-clone");
+    data.append("upload_preset", "Youtube_capstone");
 
     try {
       setIsLoading(true);
       setError(null);
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dldpmvy2l/image/upload",
+        "https://api.cloudinary.com/v1_1/dclowgl6x/image/upload",
         data
       );
       const imageUrl = response.data.url;

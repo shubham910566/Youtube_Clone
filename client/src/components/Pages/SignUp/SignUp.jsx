@@ -201,7 +201,7 @@ const SignUp = () => {
       </div>
 
       {/* Toast container for notifications */}
-      <ToastContainer />
+      <ToastContainer style={{overflow:"hidden"}}/>
     </div>
   );
 };
