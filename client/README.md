@@ -53,12 +53,11 @@ This is the frontend of a YouTube clone, built with React as part of a MERN stac
 
 ## Folder Structure
 
-\```bash
+```bash
 client/
 ├── public/
 │   ├── index.html
-│   ├── youtube-favicon.png
-│   └── favicon.ico
+│   
 ├── src/
 │   ├── components/
 │   │   ├── Navbar/
@@ -100,7 +99,7 @@ client/
 ├── package.json
 ├── vite.config.js
 └── README.md
-\```
+```
 
 ---
 
@@ -112,11 +111,11 @@ client/
 
 ### Steps
 
-\```bash
+```bash
 cd client
 npm install
 npm run dev
-\```
+```
 
 Open [http://localhost:5173](http://localhost:5173)
 
@@ -139,4 +138,4 @@ Open [http://localhost:5173](http://localhost:5173)
 - **Mobile**: Sidebar overlays content with hamburger
 - **Tablet/Desktop**: Sidebar shifts layout for clarity
 
----' > README.md
+
