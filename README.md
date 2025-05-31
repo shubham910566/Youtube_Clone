@@ -127,8 +127,7 @@ Ensure the following are installed:
    PORT=8000
    MONGODB_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret_key
-  ```
-
+ 
    Start the backend:
    ```bash
    npm start
@@ -141,7 +140,8 @@ Ensure the following are installed:
    cd ../client
    npm install
    npm run dev
-  ```
+
+   
 
    The frontend will run at [http://localhost:5173](http://localhost:5173).
 
