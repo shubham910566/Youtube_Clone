@@ -58,23 +58,24 @@ This is a full-stack web application designed to replicate core functionalities 
 
 ## Project Structure
 
-\`\`\`
+## Project Structure
+
+```bash
 Youtube_Clone/
 ├── client/
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── Navbar/
-│   │   │   │   ├── NavBar/
-│   │   │   │   └── SideBar/
-│   │   ├── Pages/
+│   │   │   └── Sidebar/
+│   │   ├── pages/
 │   │   │   ├── CreateChannel/
-│   │   │   ├── Edit Video/
+│   │   │   ├── EditVideo/
 │   │   │   ├── Home/
-│   │   │   ├── LogIn/
-│   │   │   ├── My Channel/
+│   │   │   ├── Login/
+│   │   │   ├── MyChannel/
 │   │   │   ├── Profile/
-│   │   │   ├── SignUp/
+│   │   │   ├── Signup/
 │   │   │   ├── UploadVideoPage/
 │   │   │   └── VideoPlayer/
 │   │   ├── App.js
@@ -85,7 +86,7 @@ Youtube_Clone/
 ├── server/
 │   ├── controllers/
 │   ├── db/
-│   ├── Middleware/
+│   ├── middleware/
 │   ├── models/
 │   ├── routes/
 │   ├── config.js
@@ -93,7 +94,7 @@ Youtube_Clone/
 │   └── server.js
 ├── .gitignore
 └── README.md
-\`\`\`
+```
 
 ---
 
@@ -110,40 +111,37 @@ Ensure the following are installed:
 ### Installation
 
 1. **Clone the Repository:**
-   \`\`\`bash
+   ```bash
    git clone https://github.com/shubham910566/Youtube_Clone.git
    cd Youtube_Clone
-   \`\`\`
+   ```
 
 2. **Backend Setup:**
-   \`\`\`bash
+   ```bash
    cd server
    npm install
-   \`\`\`
+   ```
 
    Create a \`.env\` file in the \`server\` directory:
-   \`\`\`
+   ```bash
    PORT=8000
    MONGODB_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret_key
-   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-   CLOUDINARY_API_KEY=your_cloudinary_api_key
-   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-   \`\`\`
+  ```
 
    Start the backend:
-   \`\`\`bash
+   ```bash
    npm start
-   \`\`\`
+   ```
 
    The backend will run at [http://localhost:8000](http://localhost:8000).
 
 3. **Frontend Setup:**
-   \`\`\`bash
+   ```bash
    cd ../client
    npm install
    npm run dev
-   \`\`\`
+  ```
 
    The frontend will run at [http://localhost:5173](http://localhost:5173).
 
