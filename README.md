@@ -167,4 +167,4 @@ Ensure the following are installed:
 
 ## License
 
-This project is licensed under the **MIT License**. See the \`LICENSE\` file for full details.
+This project is licensed under the **MIT License**. 
