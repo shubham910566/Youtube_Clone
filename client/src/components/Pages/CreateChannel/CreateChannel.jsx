@@ -52,7 +52,7 @@ function CreateChannel() {
     if (!userId) return toast.error('You must be logged in to create a channel');
 
     try {
-      const response = await axios.post('http://localhost:8000/channel', {
+      const response = await axios.post('https://youtube-clone-backend-y63i.onrender.com/channel', {
         channelName,
         description,
         owner: userId,

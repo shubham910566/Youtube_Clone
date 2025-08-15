@@ -12,7 +12,7 @@ function HomePage({ showSideBar, searchQuery }) {
   useEffect(() => {
     const fetchVideosAndTypes = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/videos');
+        const response = await axios.get('https://youtube-clone-backend-y63i.onrender.com/api/videos');
         const allVideos = response.data.videos;
 
         // Extract unique video types from the response

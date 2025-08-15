@@ -31,7 +31,7 @@ function NavBar({ toggleSideBar, onSearch }) {
     if (profileImage) setImgUrl(profileImage);
 
     if (userId) {
-      axios.get(`http://localhost:8000/channel/by-user/${userId}`)
+      axios.get(`https://youtube-clone-backend-y63i.onrender.com/channel/by-user/${userId}`)
         .then(response => {
           if (response.data) {
             localStorage.setItem("UserChannelId", response.data._id);

@@ -24,7 +24,7 @@ const MyChannelPage = ({ showSideBar }) => {
   useEffect(() => {
     const fetchChannelDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/channel/by-user/${id}`);
+        const res = await axios.get(`https://youtube-clone-backend-y63i.onrender.com/channel/by-user/${id}`);
         setChannel(res.data);
       } catch (error) {
         console.error('Failed to fetch channel details:', error);
@@ -34,7 +34,7 @@ const MyChannelPage = ({ showSideBar }) => {
 
     const fetchChannelVideos = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/channel/${id}`);
+        const res = await axios.get(`https://youtube-clone-backend-y63i.onrender.com/api/channel/${id}`);
         setVideos(res.data.videos || []);
       } catch (error) {
         console.error('Failed to fetch videos:', error);
@@ -55,7 +55,7 @@ const MyChannelPage = ({ showSideBar }) => {
   // Confirm delete: make API call and update UI
   const handleDeleteConfirm = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/video/${videoToDelete}`, {
+      await axios.delete(`https://youtube-clone-backend-y63i.onrender.com/api/video/${videoToDelete}`, {
         withCredentials: true,
       });
       setVideos(videos.filter((v) => v._id !== videoToDelete));

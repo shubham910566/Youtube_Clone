@@ -13,7 +13,7 @@ const ProfilePage = ({ showSideBar }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/channel/${id}`);
+        const response = await axios.get(`https://youtube-clone-backend-y63i.onrender.com/api/channel/${id}`);
         setVideos(response.data.videos || []);
         setUser(response.data.user || null); 
       } catch (error) {

@@ -23,7 +23,7 @@ const LogIn = ({ setLogin }) => {
 
     try {
       // Make a login request to the backend API with the entered credentials
-      const res = await axios.post('http://localhost:8000/auth/signIn', authData, { withCredentials: true });
+      const res = await axios.post('https://youtube-clone-backend-y63i.onrender.com/auth/signIn', authData, { withCredentials: true });
 
       // Store token in cookies (used for authentication on the server)
       Cookies.set('token', res.data.token, { expires: 1, path: '/' });

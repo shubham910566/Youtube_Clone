@@ -61,7 +61,7 @@ function VideoUpload() {
 
     try {
       setIsLoading(true);
-      const res = await axios.post("http://localhost:8000/api/video", videoData, {
+      const res = await axios.post("https://youtube-clone-backend-y63i.onrender.com/api/video", videoData, {
         withCredentials: true,
       });
       toast.success("Video added successfully");

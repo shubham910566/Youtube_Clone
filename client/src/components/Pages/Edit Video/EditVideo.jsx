@@ -26,7 +26,7 @@ function EditVideo() {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/video/${id}`, {
+        const res = await axios.get(`https://youtube-clone-backend-y63i.onrender.com/api/video/${id}`, {
           withCredentials: true,
         });
         const { title, description, videoType,  thumbnail } = res.data.video;
@@ -97,7 +97,7 @@ function EditVideo() {
       }
 
       await axios.put(
-        `http://localhost:8000/api/video/${id}`,
+        `https://youtube-clone-backend-y63i.onrender.com/api/video/${id}`,
         updatedVideoData,
         { withCredentials: true }
       );

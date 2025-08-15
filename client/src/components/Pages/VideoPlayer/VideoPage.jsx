@@ -41,7 +41,7 @@ const VideoPage = () => {
   // Fetch video data by ID
   const fetchVideo = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/video/${id}`);
+      const res = await axios.get(`https://youtube-clone-backend-y63i.onrender.com/api/video/${id}`);
       console.log("Fetched video:", res.data.video);
       setVideo(res.data.video);
     } catch (err) {
@@ -53,7 +53,7 @@ const VideoPage = () => {
   // Load comments for the current video
   const fetchComments = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/comments/${id}`);
+      const res = await axios.get(`https://youtube-clone-backend-y63i.onrender.com/comments/${id}`);
       console.log("Fetched comments:", res.data.comments);
       setComments(res.data.comments || []);
     } catch (err) {
@@ -65,7 +65,7 @@ const VideoPage = () => {
   // Fetch all videos for suggestions
   const fetchAllVideos = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/videos`);
+      const res = await axios.get(`https://youtube-clone-backend-y63i.onrender.com/api/videos`);
       console.log("Fetched suggested videos:", res.data.videos);
       setSuggestionVideos(res.data.videos || []);
     } catch (err) {
@@ -81,7 +81,7 @@ const VideoPage = () => {
 
     try {
       await axios.post(
-        "http://localhost:8000/comment",
+        "https://youtube-clone-backend-y63i.onrender.com/comment",
         { user: userId, video: id, message: commentInput },
         { withCredentials: true }
       );
@@ -115,7 +115,7 @@ const handleLike = async () => {
       console.log("Optimistic like update:", { likes: updatedLikes, dislike: updatedDislikes });
 
       const res = await axios.post(
-        `http://localhost:8000/api/video/${video._id}/like`,
+        `https://youtube-clone-backend-y63i.onrender.com/api/video/${video._id}/like`,
         {},
         { withCredentials: true }
       );
@@ -168,7 +168,7 @@ const handleLike = async () => {
       console.log("Optimistic dislike update:", { likes: updatedLikes, dislike: updatedDislikes });
 
       const res = await axios.post(
-        `http://localhost:8000/api/video/${video._id}/dislike`,
+        `https://youtube-clone-backend-y63i.onrender.com/api/video/${video._id}/dislike`,
         {},
         { withCredentials: true }
       );
@@ -211,7 +211,7 @@ const handleLike = async () => {
 
     try {
       await axios.put(
-        `http://localhost:8000/comment/${commentId}`,
+        `https://youtube-clone-backend-y63i.onrender.com/comment/${commentId}`,
         { message: editText },
         { withCredentials: true }
       );
@@ -229,7 +229,7 @@ const handleLike = async () => {
     if (!userId) return toast.error("You must be logged in to delete");
 
     try {
-      await axios.delete(`http://localhost:8000/comment/${commentId}`, {
+      await axios.delete(`https://youtube-clone-backend-y63i.onrender.com/comment/${commentId}`, {
         withCredentials: true,
       });
       toast.success("Comment deleted");

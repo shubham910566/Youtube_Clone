@@ -91,7 +91,7 @@ const SignUp = () => {
     setIsLoading(true); // Start loader
     try {
       // Submit signup data to backend
-      const res = await axios.post('http://localhost:8000/auth/signUp', formData);
+      const res = await axios.post('https://youtube-clone-backend-y63i.onrender.com/auth/signUp', formData);
       toast.success(res.data.message);
       setSuccessMsg(res.data.message);
       navigate('/'); 
