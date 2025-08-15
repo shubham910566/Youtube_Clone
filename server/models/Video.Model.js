@@ -30,4 +30,4 @@
         
     }, { timestamps: true })
 
-    export default mongoose.model("video", videoSchema);
+export default mongoose.model("video", videoSchema);
