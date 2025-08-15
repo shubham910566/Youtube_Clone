@@ -12,7 +12,7 @@ import { PORT } from "./config.js";
 
 
 const app = express();
-const port = PORT;
+const port = PORT || 8080;
 connectDB();
 
 app.use(cors({
